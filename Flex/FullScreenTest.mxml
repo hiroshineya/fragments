@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   width="1024" height="768" backgroundColor="#8DF867" showStatusBar="false">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			protected function btnDispSize_clickHandler(event:MouseEvent):void
+			{
+				if(stage.displayState == StageDisplayState.FULL_SCREEN_INTERACTIVE) {
+					stage.displayState = StageDisplayState.NORMAL;
+				}
+				else {
+					stage.fullScreenSourceRect = new Rectangle(0, 0, this.width, this.height);		// これをつけることで、ハードウェア拡大表示となる。(内部のコントロールも全て拡大表示される。)
+					stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;					// キーボード入力を受け付ける(Airのみ)
+				}
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<s:RadioButtonGroup id="radiogroup1"/>
+		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
+	</fx:Declarations>
+	<s:Label x="10" y="10" fontSize="36" fontStyle="italic" fontWeight="bold"
+			 text="FllSizeDisplayTest"/>
+	<s:Button id="btnDispSize" x="935" y="10" height="34" label="To FullSize"
+			  click="btnDispSize_clickHandler(event)"/>
+	<s:ToggleButton x="10" y="66" height="51" label="トグルボタン"/>
+	<s:VGroup x="10" y="125" width="118" height="101">
+		<s:RadioButton label="ボタン 1" groupName="radiogroup1"/>
+		<s:RadioButton label="ボタン 2" groupName="radiogroup1"/>
+		<s:RadioButton label="ボタン 3" groupName="radiogroup1"/>
+	</s:VGroup>
+	<s:TextArea x="136" y="62" width="576"
+				text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#xd;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&#xd;cccccccccccccccccccccccccccccccccccccccccccccccccc&#xd;ddddddddddddddddddddddddddddddddddddddd&#xd;eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&#xd;ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff&#xd;ggggggggggggggggggggggggggg&#xd;hhhhhhhhhhhhhhhhhhhhhhhh&#xd;iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"/>
+	<s:DataGrid x="23" y="254" width="979" height="261" requestedRowCount="4">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="dataField1" headerText="列 1"></s:GridColumn>
+				<s:GridColumn dataField="dataField2" headerText="列 2"></s:GridColumn>
+				<s:GridColumn dataField="dataField3" headerText="列 3"></s:GridColumn>
+				<s:GridColumn dataField="dataField4" headerText="列 4"></s:GridColumn>
+				<s:GridColumn dataField="dataField5" headerText="列 5"></s:GridColumn>
+				<s:GridColumn dataField="dataField6" headerText="列 6"></s:GridColumn>
+			</s:ArrayList>
+		</s:columns>
+		<s:typicalItem>
+			<fx:Object dataField1="サンプルデータ" dataField2="サンプルデータ" dataField3="サンプルデータ" dataField4="サンプルデータ" dataField5="サンプルデータ" dataField6="サンプルデータ"></fx:Object>
+		</s:typicalItem>
+		<s:ArrayList>
+			<fx:Object dataField1="データ1-1" dataField2="データ1-2" dataField3="データ1-3" dataField4="データ1-4" dataField5="データ1-5" dataField6="データ1-6"></fx:Object>
+			<fx:Object dataField1="データ2-1" dataField2="データ2-2" dataField3="データ2-3" dataField4="データ2-4" dataField5="データ2-5" dataField6="データ2-6"></fx:Object>
+			<fx:Object dataField1="データ3-1" dataField2="データ3-2" dataField3="データ3-3" dataField4="データ3-4" dataField5="データ3-5" dataField6="データ3-6"></fx:Object>
+			<fx:Object dataField1="データ4-1" dataField2="データ4-2" dataField3="データ4-3" dataField4="データ4-4" dataField5="データ4-5" dataField6="データ4-6"></fx:Object>
+			<fx:Object dataField1="データ5-1" dataField2="データ5-2" dataField3="データ5-3" dataField4="データ5-4" dataField5="データ5-5" dataField6="データ5-6"></fx:Object>
+			<fx:Object dataField1="データ6-1" dataField2="データ6-2" dataField3="データ6-3" dataField4="データ6-4" dataField5="データ6-5" dataField6="データ6-6"></fx:Object>
+			<fx:Object dataField1="データ7-1" dataField2="データ7-2" dataField3="データ7-3" dataField4="データ7-4" dataField5="データ7-5" dataField6="データ7-6"></fx:Object>
+			<fx:Object dataField1="データ8-1" dataField2="データ8-2" dataField3="データ8-3" dataField4="データ8-4" dataField5="データ8-5" dataField6="データ8-6"></fx:Object>
+			<fx:Object dataField1="データ9-1" dataField2="データ9-2" dataField3="データ9-3" dataField4="データ9-4" dataField5="データ9-5" dataField6="データ9-6"></fx:Object>
+		</s:ArrayList>
+	</s:DataGrid>
+	<s:Button x="10" y="737" label="ボタン"/>
+	<s:Button x="944" y="737" label="ボタン"/>
+</s:WindowedApplication>
